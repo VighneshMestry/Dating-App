@@ -1,3 +1,4 @@
+import 'package:dating_app/commons/my_info.dart';
 import 'package:dating_app/styleguide/colors.dart';
 import 'package:dating_app/styleguide/text_style.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,8 @@ class ProfilePage extends StatelessWidget {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text("My Profile", style: whiteNameTextStyle, textAlign: TextAlign.left,),
-                            )
+                            ),
+                            MyInfo(),
                           ],
                         ),
                       ),
