@@ -20,7 +20,6 @@ class ProfilePage extends StatelessWidget {
       body: Stack(
         children: [
           Column(
-
             children: [
               Expanded(
                 flex: 4,
@@ -52,84 +51,90 @@ class ProfilePage extends StatelessWidget {
               ),
               Expanded(
                 flex: 5,
-                child: Container(
-                  color: Colors.white,
-                  child: Table(
-                    children: [
-                      TableRow(
-                        children: [
-                          const ProfileInfoBigCard(
-                            firstText: "13",
-                            secondText: "New Matches",
-                            icon: Icon(
-                              Icons.star,
-                              size: 32,
-                              color: blueColor,
-                            ),
-                          ),
-                          ProfileInfoBigCard(
-                            firstText: "21",
-                            secondText: "Unmatched",
-                            icon: Image.asset(
-                              "assets/icons/sad_smiley.png",
-                              color: blueColor,
-                              width: 32,
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          ProfileInfoBigCard(
-                            firstText: "264",
-                            secondText: "All Matches",
-                            icon: Image.asset(
-                              "assets/icons/checklist.png",
-                              color: blueColor,
-                              width: 32,
-                            ),
-                          ),
-                          const ProfileInfoBigCard(
-                            firstText: "42",
-                            secondText: "Rematches",
-                            icon: Icon(
-                              Icons.refresh,
-                              color: blueColor,
-                              size: 32,
-                            ),
-                          ),
-                        ],
-                      ),
-                      TableRow(
-                        children: [
-                          const ProfileInfoBigCard(
-                            firstText: "404",
-                            secondText: "Profile Visitors",
-                            icon: Icon(
-                              Icons.remove_red_eye,
-                              size: 32,
-                              color: blueColor,
-                            ),
-                          ),
-                          GestureDetector(
-                            // onTap: Navigator.of(context).push(
-                            //   MaterialPageRoute(
-                            //     builder: (context) => const SuperLikesMePage(),
-                            //   ),
-                            // ),
-                            child: const ProfileInfoBigCard(
-                              firstText: "42",
-                              secondText: "Super Likes",
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Container(
+                    color: Colors.white,
+                    child: Table(
+                      children: [
+                        TableRow(
+                          children: [
+                            const ProfileInfoBigCard(
+                              firstText: "13",
+                              secondText: "New Matches",
                               icon: Icon(
-                                Icons.favorite,
+                                Icons.star,
+                                size: 32,
+                                color: blueColor,
+                              ),
+                            ),
+                            ProfileInfoBigCard(
+                              firstText: "21",
+                              secondText: "Unmatched",
+                              icon: Image.asset(
+                                "assets/icons/sad_smiley.png",
+                                color: blueColor,
+                                width: 32,
+                              ),
+                            ),
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            ProfileInfoBigCard(
+                              firstText: "264",
+                              secondText: "All Matches",
+                              icon: Image.asset(
+                                "assets/icons/checklist.png",
+                                color: blueColor,
+                                width: 32,
+                              ),
+                            ),
+                            const ProfileInfoBigCard(
+                              firstText: "42",
+                              secondText: "Rematches",
+                              icon: Icon(
+                                Icons.refresh,
                                 color: blueColor,
                                 size: 32,
                               ),
                             ),
-                          ),
-                        ],
-                      )
-                    ],
+                          ],
+                        ),
+                        TableRow(
+                          children: [
+                            const ProfileInfoBigCard(
+                              firstText: "404",
+                              secondText: "Profile Visitors",
+                              icon: Icon(
+                                Icons.remove_red_eye,
+                                size: 32,
+                                color: blueColor,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SuperLikesMePage(),
+                                  ),
+                                );
+                              },
+                              child: const ProfileInfoBigCard(
+                                firstText: "42",
+                                secondText: "Super Likes",
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: blueColor,
+                                  size: 32,
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )
@@ -137,25 +142,28 @@ class ProfilePage extends StatelessWidget {
           ),
           // Positioned also requires atleast one vertical component and two horizontal components
           Positioned(
-            top: screenHeight * (4/9) - 80/2,
+            top: screenHeight * (4 / 9) - 80 / 2,
             left: 16,
             right: 16,
+            height: 80,
             child: Row(
-              children: [
-                ProfileInfoCard(
-                  firstText: "54%",
-                  secondText: "Progress"
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.max,
+              children: const [
+                ProfileInfoCard(firstText: "54%", secondText: "Progress"),
+                SizedBox(
+                  width: 10,
                 ),
                 ProfileInfoCard(
                   hasImage: true,
                   imagePath: "assets/icons/pulse.png",
                 ),
-                ProfileInfoCard(
-                  firstText: "152",
-                  secondText: "Level"
+                SizedBox(
+                  width: 10,
                 ),
+                ProfileInfoCard(firstText: "152", secondText: "Level"),
               ],
-            )
+            ),
           )
         ],
       ),
