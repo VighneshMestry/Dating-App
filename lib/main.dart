@@ -1,3 +1,4 @@
+import 'package:dating_app/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blue,
         fontFamily: 'Raleway',
       ),
-      home: Container(),
+      home: ProfilePage(),
     );
   }
 }
